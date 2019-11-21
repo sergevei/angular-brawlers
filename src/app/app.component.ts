@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { IAppState } from './store/state/app.state';
 
 import { GetPlayers } from './store/actions/player.actions';
-import { IPlayer } from './models/player.interface';
+import { IPlayer } from './shared/models/player.interface';
 import {
   selectLoading,
   selectPlayers

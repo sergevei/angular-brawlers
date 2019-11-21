@@ -1,4 +1,4 @@
-import { IClub } from '../../models/club.interface';
+import { IClub } from '../../shared/models/club.interface';
 
 export interface IClubState {
   clubs: IClub[];

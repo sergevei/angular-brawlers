@@ -10,7 +10,6 @@ import { brawlersUrl } from './api.links';
   providedIn: 'root'
 })
 export class HeroService {
-
   constructor(private http: HttpClient) {}
 
   getBrawlers(): Observable<IBrawler> {

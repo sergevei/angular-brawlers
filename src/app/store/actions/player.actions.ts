@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { IPlayer } from '../../models/player.interface';
+import { IPlayer } from '../../shared/models/player.interface';
 
 export enum EPlayerActions {
   GetPlayer= '[Player] Get Player',

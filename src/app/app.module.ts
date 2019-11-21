@@ -15,7 +15,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { NgxPaginationModule } from 'ngx-pagination';
-import { AppRoutingModule } from './app-module.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 
 import { PlayerReducers } from './store/reducers/player.reducers';

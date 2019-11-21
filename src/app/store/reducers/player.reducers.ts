@@ -21,6 +21,13 @@ export const PlayerReducers = (
       };
     }
 
+    case EPlayerActions.GetPlayers: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+
     default:
       return state;
   }

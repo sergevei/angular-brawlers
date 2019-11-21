@@ -10,7 +10,7 @@ import {
 } from '../actions/player.actions';
 import { of } from 'rxjs';
 
-import { PlayerService } from '../../services/player.service';
+import { PlayerService } from '../../shared/services/player.service';
 
 @Injectable()
 export class PlayerEffect {

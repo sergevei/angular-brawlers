@@ -1,4 +1,4 @@
-import { IBrawler } from '../../models/brawler.interface';
+import { IBrawler } from '../../shared/models/brawler.interface';
 
 export interface IBrawlerState {
   brawlers: IBrawler[];

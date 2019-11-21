@@ -1,4 +1,4 @@
-import { IPlayer } from '../../models/player.interface';
+import { IPlayer } from '../../shared/models/player.interface';
 
 export interface IPlayerState {
   isLoading: boolean;
