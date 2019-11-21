@@ -1,4 +1,6 @@
 app-component
+<img src="../assets/logo.png" alt="logo">
+<img src="../assets/power.svg" alt="power">
 <h1 *ngIf="isLoading | async; else brawlers">Loading...</h1>
 <ng-template #brawlers>
   <p *ngFor="let player of players | async">
