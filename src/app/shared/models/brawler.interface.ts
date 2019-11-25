@@ -12,3 +12,7 @@ export interface IBrawler {
   highestTrophies?: number;
   starsPower: IStarsPower[];
 }
+
+export interface IBrawlers {
+  items: IBrawler[];
+}

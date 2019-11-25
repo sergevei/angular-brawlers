@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IBrawler } from '../../models/brawler.interface';
 
 @Component({
   selector: 'app-brawler',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./brawler.component.scss']
 })
 export class BrawlerComponent implements OnInit {
+  @Input() brawler: IBrawler;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -1,1 +1,72 @@
-<p>header works!</p>
+<header>
+  <div class="container">
+    <div class="logo">
+      <a [routerLink]="['']">
+        <img src="../../../../assets/logo.png" alt="Brawlers" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            [routerLink]="['']"
+            >brawlers</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" [routerLink]="['players']"
+            >top 30 players</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" [routerLink]="['clubs']">top 10 clubs</a>
+        </li>
+        <!-- <li routerLinkActive="active">
+          <a [routerLink]="['player', 123]">top 30 players</a>
+        </li> -->
+      </ul>
+    </nav>
+    <form class="searchFrom" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-control">
+        <input
+          type="text"
+          formControlName="tag"
+          placeholder="tag"
+          (focus)="onFocus = true"
+          (blur)="onFocus = false"
+        />
+        <div
+          class="validation"
+          *ngIf="form.get('tag').invalid && form.get('tag').touched && onFocus"
+        >
+          <div class="error">
+            ERROR
+          </div>
+          <div class="msg" *ngIf="form.get('tag').errors.minlength">
+            Min width for tag is 9 symbols
+          </div>
+          <div class="msg" *ngIf="form.get('tag').errors.maxlength">
+            Max width for tag is 9 symbols
+          </div>
+          <div class="msg" *ngIf="form.get('tag').errors.required">
+            Tag is required
+          </div>
+          <div
+            class="msg"
+            *ngIf="
+              form.get('tag').errors.invalidTag &&
+              !form.get('tag').errors.required
+            "
+          >
+            Tag is invalid
+          </div>
+        </div>
+      </div>
+      <button type="submit">
+        <img src="../../../../assets/find.png" alt="find" />
+      </button>
+    </form>
+  </div>
+</header>

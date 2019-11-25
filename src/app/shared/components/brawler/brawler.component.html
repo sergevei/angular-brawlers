@@ -1,1 +1,13 @@
-<p>brawler works!</p>
+<article>
+  <img [src]="'../../../../assets/heroes/icons/' + brawler.name + '.png'" />
+  <div class="info">
+    <p class="name">{{ brawler.name }}</p>
+    <p class="power" *ngFor="let power of brawler.starPowers">
+      <img src="../../../assets/league.png" alt="power" />
+      <span>{{ power.name }}</span>
+    </p>
+    <a class="button" [routerLink]="['player', brawler.id]">
+      Top player
+    </a>
+  </div>
+</article>

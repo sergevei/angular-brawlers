@@ -1,0 +1,60 @@
+@import '../../../shared/global.colors.scss';
+
+article {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px;
+  background-color: $bcg-color;
+  width: 350px;
+  height: 150px;
+  position: relative;
+
+  .info {
+    z-index: 1;
+    position: relative;
+    width: 200px;
+    text-align: center;
+    float: right;
+    height: 100%;
+
+    p{
+      margin: 0;
+    }
+  
+    .name {
+      font-size: 24px;
+      color: $yellow;
+      margin: 15px 0 5px 0;
+    }
+
+    .power {
+      color: $whiteBlue;
+
+      img{
+        height: 20px;
+        width: auto;
+        margin-left: -25px;
+      }
+    }
+
+    .button {
+      position: relative;
+      top: 30px;
+      padding: 10px 15px;
+      background-color: $main-color;
+      color: $whiteBlue;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: $bcg-color;
+        color: $yellow;
+      }
+    }
+  }
+
+  img {
+    position: absolute;
+    height: 100%;
+    z-index: 0;
+  }
+}

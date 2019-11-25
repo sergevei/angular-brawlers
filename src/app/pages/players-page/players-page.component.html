@@ -1,1 +1,8 @@
 <p>players-page works!</p>
+<h1 *ngIf="isLoading | async; else brawlers">Loading...</h1>
+<ng-template #brawlers>
+  <p *ngFor="let player of players | async">
+    {{ player.name }}
+  </p>
+</ng-template>
+
