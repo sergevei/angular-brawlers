@@ -9,7 +9,7 @@ import { ClubsPageComponent } from './pages/clubs-page/clubs-page.component';
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'players', component: PlayersPageComponent },
-  { path: 'player/:id', component: PlayerPageComponent },
+  { path: 'player', component: PlayerPageComponent },
   { path: 'club', component: ClubPageComponent },
   { path: 'clubs', component: ClubsPageComponent },
   { path: '404', component: MainPageComponent },

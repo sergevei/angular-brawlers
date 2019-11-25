@@ -20,6 +20,7 @@ export class PlayerEffect {
     switchMap(() =>
       this.playerService.getPlayers().pipe(
         map(players => {
+          console.log(players.items);
           return new GetPlayersSuccess(players.items);
         }),
         catchError(() => of(console.log('error')))

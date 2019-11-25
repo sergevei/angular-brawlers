@@ -32,6 +32,7 @@ import { PlayerPageComponent } from './pages/player-page/player-page.component';
 import { ClubPageComponent } from './pages/club-page/club-page.component';
 import { ClubsPageComponent } from './pages/clubs-page/clubs-page.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
     ClubPageComponent,
     ClubsPageComponent,
     MainPageComponent,
-    BrawlerComponent
+    BrawlerComponent,
+    LoaderComponent
   ],
   imports: [
     AppRoutingModule,

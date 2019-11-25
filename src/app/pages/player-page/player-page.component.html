@@ -1,2 +1,3 @@
 <p>player-page works!</p>
-<h1>{{ id }}</h1>
+<h1 *ngIf="params.value.brawlerId">id {{ params.value.brawlerId }}</h1>
+<h1 *ngIf="params.value.playerTag">tag {{ params.value.playerTag }}</h1>

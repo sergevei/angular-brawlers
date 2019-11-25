@@ -7,13 +7,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./player-page.component.scss']
 })
 export class PlayerPageComponent implements OnInit {
+  params: any;
 
-  id: number;
-  constructor(private activateRoute: ActivatedRoute) { 
-    this.id = activateRoute.snapshot.params['id'];
+  constructor(private activateRoute: ActivatedRoute) {
+    this.params = this.activateRoute.queryParams;
   }
 
   ngOnInit() {
+    if (this.params.value.playerTag) {
+      console.log(this.params.value.tag);
+    }
+    if (this.params.value.brawlerId) {
+      console.log(this.params.value.brawlerId);
+    }
   }
-
 }

@@ -1,8 +1,44 @@
-<p>players-page works!</p>
-<h1 *ngIf="isLoading | async; else brawlers">Loading...</h1>
-<ng-template #brawlers>
-  <p *ngFor="let player of players | async">
-    {{ player.name }}
-  </p>
-</ng-template>
-
+<main>
+  <h2>Top 30 players</h2>
+  <div *ngIf="isLoading | async; else players_container" class="loading">
+      <app-loader></app-loader>
+  </div>
+  <ng-template #players_container>
+    <pagination-controls
+      class="pagination_controls"
+      directionLinks="false"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+    <div class="players_list">
+      <ng-container
+        *ngFor="
+          let player of players
+            | async
+            | paginate: { itemsPerPage: 15, currentPage: p }
+        "
+      >
+        <article>
+          <div class="rank">{{ player.rank }}</div>
+          <h3>{{ player.name }}</h3>
+          <p class="tag"><span>TAG:</span> {{ player.tag }}</p>
+          <p class="trophies"><span>Trophies:</span> {{ player.trophies }}</p>
+          <div class="club">
+            <p *ngIf="player.club; else noClub">
+              <span>Club:</span> {{ player.club.name }}
+            </p>
+            <ng-template #noClub>
+              <span>no club</span>
+            </ng-template>
+          </div>
+          <a
+            class="button"
+            [routerLink]="['/player']"
+            [queryParams]="{ playerTag: player.tag }"
+          >
+            info
+          </a>
+        </article>
+      </ng-container>
+    </div>
+  </ng-template>
+</main>

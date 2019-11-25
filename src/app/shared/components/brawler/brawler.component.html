@@ -6,7 +6,7 @@
       <img src="../../../assets/league.png" alt="power" />
       <span>{{ power.name }}</span>
     </p>
-    <a class="button" [routerLink]="['player', brawler.id]">
+    <a class="button" [routerLink]="['player']" [queryParams]="{brawlerId: brawler.id}">
       Top player
     </a>
   </div>

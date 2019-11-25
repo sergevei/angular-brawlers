@@ -23,9 +23,6 @@
         <li>
           <a routerLinkActive="active" [routerLink]="['clubs']">top 10 clubs</a>
         </li>
-        <!-- <li routerLinkActive="active">
-          <a [routerLink]="['player', 123]">top 30 players</a>
-        </li> -->
       </ul>
     </nav>
     <form class="searchFrom" [formGroup]="form" (ngSubmit)="submit()">
@@ -39,7 +36,7 @@
         />
         <div
           class="validation"
-          *ngIf="form.get('tag').invalid && form.get('tag').touched && onFocus"
+          *ngIf="form.get('tag').invalid && onFocus"
         >
           <div class="error">
             ERROR
