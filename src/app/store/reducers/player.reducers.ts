@@ -9,13 +9,32 @@ export const PlayerReducers = (
     case EPlayerActions.GetPlayerSuccess: {
       return {
         ...state,
+        notFound: false,
+        isLoading: false,
         player: action.payload
+      };
+    }
+
+    case EPlayerActions.GetPlayerError: {
+      return {
+        ...state,
+        notFound: true,
+        isLoading: false
+      };
+    }
+
+    case EPlayerActions.GetPlayer: {
+      return {
+        ...state,
+        notFound: true,
+        isLoading: true
       };
     }
 
     case EPlayerActions.GetPlayersSuccess: {
       return {
         ...state,
+        notFound: false,
         isLoading: false,
         players: action.payload
       };
@@ -24,7 +43,22 @@ export const PlayerReducers = (
     case EPlayerActions.GetPlayers: {
       return {
         ...state,
-        isLoading: true,
+        isLoading: true
+      };
+    }
+
+    case EPlayerActions.GetBrawlerPlayers: {
+      return {
+        ...state,
+        isLoading: true
+      };
+    }
+
+    case EPlayerActions.GetBrawlerPlayersError: {
+      return {
+        ...state,
+        notFound: true,
+        isLoading: false
       };
     }
 

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { IPlayer, IPlayers } from '../models/player.interface';
 import { httpHeader } from './http.header';
-import { playersUrl, playerUrl } from './api.links';
+import { api } from './api.links';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,14 @@ export class PlayerService {
   constructor(private http: HttpClient) {}
 
   getPlayers(): Observable<IPlayers> {
-    return this.http.get<IPlayers>(playersUrl, httpHeader);
+    return this.http.get<IPlayers>(api.playersUrl, httpHeader);
   }
 
-  getPlayer(tag): Observable<IPlayer> {
-    return this.http.get<IPlayer>(playerUrl + tag, httpHeader);
+  getTopBrawlerPlayers(brawlerId): Observable<IPlayers> {
+    return this.http.get<IPlayers>(api.brawlerPlayers + brawlerId + api.brawlerPlayersLimit, httpHeader);
+  }
+
+  getPlayerByTag(playerTag): Observable<IPlayer> {
+    return this.http.get<IPlayer>(api.playerUrlByTag + playerTag, httpHeader);
   }
 }

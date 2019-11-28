@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { IClub } from '../models/club.interface';
+import { IClub, IClubs } from '../models/club.interface';
 import { httpHeader } from './http.header';
-import { clubsUrl, clubUrl } from './api.links';
+import { api } from './api.links';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,11 @@ import { clubsUrl, clubUrl } from './api.links';
 export class ClubService {
   constructor(private http: HttpClient) {}
 
-  getClubs(): Observable<IClub[]> {
-    return this.http.get<IClub[]>(clubsUrl, httpHeader);
+  getClubs(): Observable<IClubs> {
+    return this.http.get<IClubs>(api.clubsUrl, httpHeader);
   }
 
   getClub(tag): Observable<IClub> {
-    return this.http.get<IClub>(clubUrl + tag, httpHeader);
+    return this.http.get<IClub>(api.clubUrl + tag, httpHeader);
   }
 }

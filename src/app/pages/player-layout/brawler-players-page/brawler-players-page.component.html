@@ -1,0 +1,35 @@
+<main>
+  <h2>Top 50 players on the {{ brawlerName }}</h2>
+  <div *ngIf="isLoading | async; else notfound_container" class="loading">
+    <app-loader></app-loader>
+  </div>
+  <ng-template #notfound_container>
+    <p *ngIf="notFound | async; else players_container">
+      incorrect brawlers id
+    </p>
+  </ng-template>
+  <ng-template #players_container>
+    <pagination-controls
+      class="pagination_controls"
+      directionLinks="false"
+      (pageChange)="p = $event"
+    ></pagination-controls>
+    <div class="brawler_img">
+      <img
+        [src]="'../../../../assets/heroes/fullImg/' + brawlerName + '.png'"
+        [alt]="brawlerName"
+      />
+    </div>
+    <div class="players_list">
+      <ng-container
+        *ngFor="
+          let player of players
+            | async
+            | paginate: { itemsPerPage: 15, currentPage: p }
+        "
+      >
+        <app-player-card [player]="player"></app-player-card>
+      </ng-container>
+    </div>
+  </ng-template>
+</main>

@@ -1,0 +1,97 @@
+@import '../../../shared/global.colors.scss';
+
+h2 {
+  text-align: center;
+  color: $white;
+}
+
+.profile {
+  .player_data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .main {
+      position: relative;
+      background-color: $bcg-color;
+      padding: 15px;
+      border-radius: 8px;
+
+      img {
+        width: auto;
+        max-width: 250px;
+        height: auto;
+      }
+
+      p {
+        color: $white;
+        text-align: center;
+        font-size: 30px;
+        margin: 5px 0 15px 0;
+      }
+
+      .level {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        color: $white;
+        height: 45px;
+        width: 45px;
+        background-image: url(../../../../assets/profileLevel.png);
+        background-size: 100% 100%;
+      }
+
+      small {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+
+        .button {
+          padding: 10px 20px;
+          background-color: $main-color;
+          color: $whiteBlue;
+          margin-left: 15px;
+          border-radius: 8px;
+
+          &:hover {
+            background-color: $bcg-color;
+            color: $yellow;
+          }
+        }
+      }
+    }
+    .stats {
+      & > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $bcg-color;
+        color: $white;
+        padding: 10px;
+        margin: 0 0 10px 10px;
+        border-radius: 8px;
+
+        img {
+          height: 30px;
+          margin-right: 15px;
+        }
+
+        & > span {
+          margin-left: 20px;
+          color: $yellow;
+          float: right;
+        }
+      }
+    }
+  }
+  .brawlers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

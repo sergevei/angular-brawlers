@@ -1,0 +1,88 @@
+<main>
+  <h2>Player</h2>
+  <div *ngIf="isLoading | async; else player_container" class="loading">
+    <app-loader></app-loader>
+  </div>
+  <ng-template #player_container>
+    <p *ngIf="notFound | async; else profile">
+      player not found
+    </p>
+  </ng-template>
+  <ng-template #profile>
+    <section *ngIf="player | async as p" class="profile">
+      <section class="player_data">
+        <section class="main">
+          <div class="level">{{ p.expLevel }}</div>
+          <p>{{ p.name }}</p>
+          <img
+            [src]="
+              '../../../../assets/heroes/fullImg/' +
+              topBrawler(p.brawlers).name +
+              '.png'
+            "
+            [alt]="topBrawler"
+          />
+          <div class="club">
+            <small *ngIf="p.club.name; else withoutClub"
+              >club:
+              <a class="button" [routerLink]="['/clubs', p.club.tag]">{{
+                p.club.name
+              }}</a></small
+            >
+            <ng-template #withoutClub>
+              <small>club: leisure</small>
+            </ng-template>
+          </div>
+        </section>
+        <section class="stats">
+          <div class="trophies">
+            <img src="../../../../assets/trophie.png" alt="" />Trophies
+            <span>{{ p.trophies }}</span>
+          </div>
+          <div class="record">
+            <img src="../../../../assets/trophie.png" alt="" />Highest trophies
+            <span>{{ p.highestTrophies }}</span>
+          </div>
+          <div class="soloVictories">
+            <img src="../../../../assets/battle.png" alt="" />Solo Victories
+            <span>{{ p.soloVictories }}</span>
+          </div>
+          <div class="duoVictories">
+            <img src="../../../../assets/battle.png" alt="" />Duo Victories
+            <span>{{ p.duoVictories }}</span>
+          </div>
+          <div class="victories3vs3">
+            <img src="../../../../assets/gem.png" alt="" /> 3 VS 3 Victories
+            <span>{{ p['3vs3Victories'] }}</span>
+          </div>
+          <div class="bestRoboRumbleTime">
+            <img src="../../../../assets/roborimble.png" alt="" />
+            Best Robo Rumble Time
+            <span>{{ p.bestRoboRumbleTime / 60 | number: '1.0-1' }} min</span>
+          </div>
+          <div class="bestTimeAsBigBrawler">
+            <img src="../../../../assets/boss.png" alt="" />
+            Best Time As Boss
+            <span>{{ p.bestTimeAsBigBrawler / 60 | number: '1.0-1' }} min</span>
+          </div>
+        </section>
+      </section>
+      <h2>Brawlers</h2>
+      <pagination-controls
+        class="pagination_controls"
+        directionLinks="false"
+        (pageChange)="page = $event"
+      ></pagination-controls>
+      <section class="brawlers">
+        <ng-container
+          *ngFor="
+            let brawler of p.brawlers
+              | paginate: { itemsPerPage: 10, currentPage: page }
+          "
+        >
+          <app-brawler [brawler]="brawler"></app-brawler>
+        </ng-container>
+      </section>
+    </section>
+  </ng-template>
+</main>

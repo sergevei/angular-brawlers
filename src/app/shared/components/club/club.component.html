@@ -1,1 +1,12 @@
-<p>club works!</p>
+<article>
+  <div class="rank">{{ club.rank }}</div>
+  <h3>{{ club.name }}</h3>
+  <p class="tag"><span>TAG:</span> {{ club.tag }}</p>
+  <p class="trophies"><span>Trophies:</span> {{ club.trophies }}</p>
+  <a
+    class="button"
+    [routerLink]="['/clubs',club.tag ]"
+  >
+    info
+  </a>
+</article>

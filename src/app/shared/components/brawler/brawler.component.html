@@ -1,13 +1,27 @@
 <article>
   <img [src]="'../../../../assets/heroes/icons/' + brawler.name + '.png'" />
+  <span *ngIf="brawler.rank" class="rank">
+      {{ brawler.rank }}
+  </span>
   <div class="info">
-    <p class="name">{{ brawler.name }}</p>
+    <p class="name">
+      {{ brawler.name }}
+    </p>
     <p class="power" *ngFor="let power of brawler.starPowers">
       <img src="../../../assets/league.png" alt="power" />
       <span>{{ power.name }}</span>
     </p>
-    <a class="button" [routerLink]="['player']" [queryParams]="{brawlerId: brawler.id}">
-      Top player
+    <a
+      class="button"
+      [routerLink]="['/players', brawler.id, 'brawler']"
+      [queryParams]="{ name: brawler.name }"
+    >
+      Top players
     </a>
+  </div>
+  <div class="stats" *ngIf="brawler.power">
+    <p>trophies: <span>{{ brawler.trophies }}</span></p>
+    <p>record: <span>{{ brawler.highestTrophies }}</span></p>
+    <p>lvl: <span>{{ brawler.power }}</span></p>
   </div>
 </article>

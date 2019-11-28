@@ -1,1 +1,20 @@
-<p>player works!</p>
+<article>
+  <div class="rank">{{ player.rank }}</div>
+  <h3>{{ player.name }}</h3>
+  <p class="tag"><span>TAG:</span> {{ player.tag }}</p>
+  <p class="trophies"><span>Trophies:</span> {{ player.trophies }}</p>
+  <div class="club">
+    <p *ngIf="player.club; else noClub">
+      <span>Club:</span> {{ player.club.name }}
+    </p>
+    <ng-template #noClub>
+      <span>no club</span>
+    </ng-template>
+  </div>
+  <a
+    class="button"
+    [routerLink]="['/players', player.tag]"
+  >
+    info
+  </a>
+</article>

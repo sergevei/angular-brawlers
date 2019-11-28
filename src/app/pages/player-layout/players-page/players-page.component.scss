@@ -1,0 +1,17 @@
+@import '../../../shared/global.colors.scss';
+
+main {
+  h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: $white;
+  }
+
+  .players_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

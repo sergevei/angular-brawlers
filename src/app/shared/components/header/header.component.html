@@ -28,6 +28,7 @@
     <form class="searchFrom" [formGroup]="form" (ngSubmit)="submit()">
       <div class="form-control">
         <input
+          #tag
           type="text"
           formControlName="tag"
           placeholder="tag"
@@ -42,7 +43,7 @@
             ERROR
           </div>
           <div class="msg" *ngIf="form.get('tag').errors.minlength">
-            Min width for tag is 9 symbols
+            Min width for tag is 8 symbols
           </div>
           <div class="msg" *ngIf="form.get('tag').errors.maxlength">
             Max width for tag is 9 symbols

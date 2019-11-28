@@ -19,3 +19,8 @@ export const selectLoading = createSelector(
   playerState,
   (state: IPlayerState) => state.isLoading
 );
+
+export const selectError = createSelector(
+  playerState,
+  (state: IPlayerState) => state.notFound
+);

@@ -1,0 +1,11 @@
+@import '../../../shared/global.colors.scss';
+
+footer {
+  margin: 20px 0;
+
+  p {
+    margin: 0;
+    color: $whiteBlue;
+    text-align: center;
+  }
+}

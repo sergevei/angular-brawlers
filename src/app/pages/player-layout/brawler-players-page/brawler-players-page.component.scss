@@ -1,0 +1,32 @@
+@import '../../../shared/global.colors.scss';
+
+main {
+  h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: $white;
+  }
+  .brawler_img {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+
+    img{
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+  }
+  .players_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -9,7 +9,7 @@ import { IBrawler } from '../../shared/models/brawler.interface';
 import {
   selectLoading,
   selectBrawlers
-} from '../../store/selectors/brawler.selector';
+} from '../../store/selectors/brawler.selectors';
 
 @Component({
   selector: 'app-main-page',

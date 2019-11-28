@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { IBrawlers } from '../models/brawler.interface';
 import { httpHeader } from './http.header';
-import { brawlersUrl } from './api.links';
+import { api } from './api.links';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,6 @@ export class BrawlerService {
   constructor(private http: HttpClient) {}
 
   getBrawlers(): Observable<IBrawlers> {
-    return this.http.get<IBrawlers>(brawlersUrl, httpHeader);
+    return this.http.get<IBrawlers>(api.brawlersUrl, httpHeader);
   }
 }

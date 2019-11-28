@@ -11,3 +11,7 @@ export interface IClub {
   requiredTrophies?: number;
   members: IPlayer[];
 }
+
+export interface IClubs {
+  items: IClub[];
+}
