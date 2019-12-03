@@ -23,9 +23,7 @@ export class PlayerEffect {
     ofType<GetPlayers>(EPlayerActions.GetPlayers),
     switchMap(() =>
       this.playerService.getPlayers().pipe(
-        map(players => {
-          return new GetPlayersSuccess(players.items);
-        }),
+        map(players => new GetPlayersSuccess(players.items)),
         catchError(() => of(console.log('error')))
       )
     )
@@ -34,14 +32,10 @@ export class PlayerEffect {
   @Effect()
   getPlayerByTag = this.actions$.pipe(
     ofType<GetPlayer>(EPlayerActions.GetPlayer),
-    map((action: GetPlayer) => {
-      return action.payload;
-    }),
+    map((action: GetPlayer) => action.payload),
     switchMap(playerTag =>
       this.playerService.getPlayerByTag(playerTag).pipe(
-        map(player => {
-          return new GetPlayerSuccess(player);
-        }),
+        map(player => new GetPlayerSuccess(player)),
         catchError(() => of(new GetPlayerError()))
       )
     )
@@ -50,14 +44,10 @@ export class PlayerEffect {
   @Effect()
   getBrawlerPlayers = this.actions$.pipe(
     ofType<GetBrawlerPlayers>(EPlayerActions.GetBrawlerPlayers),
-    map((action: GetBrawlerPlayers) => {
-      return action.payload;
-    }),
+    map((action: GetBrawlerPlayers) => action.payload),
     switchMap(brawlerId =>
       this.playerService.getTopBrawlerPlayers(brawlerId).pipe(
-        map(players => {
-          return new GetPlayersSuccess(players.items);
-        }),
+        map(players => new GetPlayersSuccess(players.items)),
         catchError(() => of(new GetBrawlerPlayersError()))
       )
     )

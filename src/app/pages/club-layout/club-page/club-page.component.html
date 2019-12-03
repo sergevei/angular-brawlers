@@ -1,1 +1,42 @@
-<p>club-page works!</p>
+<main>
+    <h2>Club</h2>
+    <div *ngIf="isLoading | async; else club_container" class="loading">
+      <app-loader></app-loader>
+    </div>
+    <ng-template #club_container>
+      <p *ngIf="notFound | async; else club_info">
+        club not found
+      </p>
+    </ng-template>
+    <ng-template #club_info>
+      <section *ngIf="club | async as c" class="club">
+        <section class="club_data">
+          <section class="main">
+            <p>name: {{ c.name }}</p>
+            <small>description: {{ c.description }}</small>
+            <p>tag: {{ c.tag }}</p>
+            <p>trophies: {{ c.trophies }}</p>
+            <p>requiredTrophies: {{ c.requiredTrophies }}</p>
+            <p>type: {{ c.type }}</p>
+          </section>
+        </section>
+        <h2>Members</h2>
+        <pagination-controls
+          class="pagination_controls"
+          directionLinks="false"
+          (pageChange)="page = $event"
+        ></pagination-controls>
+        <section class="members">
+          <ng-container
+            *ngFor="
+              let member of c.members
+                | paginate: { itemsPerPage: 10, currentPage: page }
+            "
+          >
+            <p>MEMBER: {{ member.name }}</p>
+          </ng-container>
+        </section>
+      </section>
+    </ng-template>
+  </main>
+  

@@ -14,3 +14,13 @@ export const selectLoading = createSelector(
   clubState,
   (state: IClubState) => state.isLoading
 );
+
+export const selectClub = createSelector(
+  clubState,
+  (state: IClubState) => state.club
+);
+
+export const selectNotFound = createSelector(
+  clubState,
+  (state: IClubState) => state.notFound
+);

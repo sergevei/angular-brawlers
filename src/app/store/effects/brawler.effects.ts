@@ -18,10 +18,7 @@ export class BrawlerEffect {
     ofType<GetBrawlers>(EBrawlerActions.GetBrawlers),
     switchMap(() =>
       this.brawlerService.getBrawlers().pipe(
-        map(brawlers => {
-          console.log(brawlers.items);
-          return new GetBrawlersSuccess(brawlers.items);
-        }),
+        map(brawlers => new GetBrawlersSuccess(brawlers.items)),
         catchError(() => of(console.log('error')))
       )
     )
