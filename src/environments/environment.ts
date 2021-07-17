@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  taskUrl: 'https://jsonplaceholder.typicode.com/todos',
-  apiKey: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjFkMjIzZmY5LTk2YTEtNDFhMi05MjQxLWYxNzc5Nzk2ODhjOCIsImlhdCI6MTU3MjQzMzUyNywic3ViIjoiZGV2ZWxvcGVyL2UxYmQ1OTEwLWE1ODEtMjZkNi05MGVhLTcwNTJjYWQyODE0YiIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiODYuNTcuMTc3LjExNSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.W5HM6u1H-pzQdh1-eSRJ7szCcbdVggy7JtqUENVbPh9s7Dt43G8Ufiw91imfDC35tizbePq9So_-zF8fUhE5kw'
+  taskUrl: 'https://jsonplaceholder.typicode.com/todos'
 };
 
 /*
